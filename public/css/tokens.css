@@ -1,95 +1,127 @@
-/* Design tokens: colours for the light/dark app themes (Ocean, Forest, Sunset, Rose). */
+/* Design tokens: palette, radii, shadows. Variable names are the contract —
+   every theme and the output themes below reuse them, so new themes only
+   need to set these same names. */
 
 :root {
-    --bg: #e8edf5;
-    --pn: #fff;
-    --ink: #14213d;
-    --mut: #5d6b86;
-    --ln: #cdd6e4;
-    --acc: #2b50e6;
-    --soft: #eef2fb;
-    --code: #0f1b33;
-    --codei: #d7e2ff;
+    --bg: #f4f5f7;
+    --pn: #ffffff;
+    --ink: #101828;
+    --mut: #667085;
+    --ln: #e4e7ec;
+    --acc: #6d28d9;
+    --acc2: #a855f7;
+    --soft: #f2f4f7;
+    --code: #101828;
+    --codei: #ede9fe;
+    --oa: #ffffff;
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-xl: 20px;
+    --sh-1: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .10);
+    --sh-2: 0 4px 12px rgba(16, 24, 40, .08), 0 12px 32px rgba(16, 24, 40, .12);
+    --sh-3: 0 8px 24px rgba(16, 24, 40, .12), 0 24px 48px rgba(16, 24, 40, .16);
+    --ring: 0 0 0 3px color-mix(in srgb, var(--acc) 28%, transparent);
     box-sizing: border-box;
-    padding-top: env(safe-area-inset-top,0px);
-    padding-bottom: env(safe-area-inset-bottom,0px);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme=light]) {
-        --bg: #0d1424;
-        --pn: #162039;
-        --ink: #e6ecfa;
-        --mut: #8f9db8;
-        --ln: #27355a;
-        --acc: #7b97ff;
-        --soft: #1b2748;
-        --code: #0a1020;
-        --codei: #d7e2ff;
+        --bg: #0b0d12;
+        --pn: #151821;
+        --ink: #f2f4f7;
+        --mut: #98a2b3;
+        --ln: #262c38;
+        --acc: #a78bfa;
+        --acc2: #c4b5fd;
+        --soft: #1c2130;
+        --code: #0b0d12;
+        --codei: #ede9fe;
+        --oa: #0b0d12;
+        --sh-1: 0 1px 2px rgba(0, 0, 0, .35), 0 1px 3px rgba(0, 0, 0, .45);
+        --sh-2: 0 4px 12px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .5);
+        --sh-3: 0 8px 24px rgba(0, 0, 0, .5), 0 24px 48px rgba(0, 0, 0, .6);
     }
 }
 
 :root[data-theme=dark] {
-    --bg: #0d1424;
-    --pn: #162039;
-    --ink: #e6ecfa;
-    --mut: #8f9db8;
-    --ln: #27355a;
-    --acc: #7b97ff;
-    --soft: #1b2748;
-    --code: #0a1020;
-    --codei: #d7e2ff;
+    --bg: #0b0d12;
+    --pn: #151821;
+    --ink: #f2f4f7;
+    --mut: #98a2b3;
+    --ln: #262c38;
+    --acc: #a78bfa;
+    --acc2: #c4b5fd;
+    --soft: #1c2130;
+    --code: #0b0d12;
+    --codei: #ede9fe;
+    --oa: #0b0d12;
+    --sh-1: 0 1px 2px rgba(0, 0, 0, .35), 0 1px 3px rgba(0, 0, 0, .45);
+    --sh-2: 0 4px 12px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .5);
+    --sh-3: 0 8px 24px rgba(0, 0, 0, .5), 0 24px 48px rgba(0, 0, 0, .6);
 }
 
 :root[data-theme=ocean] {
-    --bg: #dcecf4;
-    --pn: #f4fafd;
-    --ink: #0b2b3b;
-    --mut: #4f6f80;
-    --ln: #b4d2e0;
-    --acc: #0a7ea4;
-    --soft: #e2f1f8;
-    --code: #0b2b3b;
-    --codei: #d8f1ff;
+    --bg: #eaf4f8;
+    --pn: #ffffff;
+    --ink: #0c2431;
+    --mut: #527083;
+    --ln: #c9dde8;
+    --acc: #0891b2;
+    --acc2: #06b6d4;
+    --soft: #eef7fa;
+    --code: #0c2431;
+    --codei: #cffafe;
+    --oa: #ffffff;
 }
 
 :root[data-theme=forest] {
-    --bg: #e3ece2;
-    --pn: #f6faf5;
-    --ink: #1c2e20;
-    --mut: #587060;
-    --ln: #bfd3c1;
-    --acc: #2d7a46;
-    --soft: #e8f2e8;
-    --code: #14231a;
-    --codei: #d9f5de;
+    --bg: #edf3ec;
+    --pn: #ffffff;
+    --ink: #1a2e1f;
+    --mut: #5a7160;
+    --ln: #cfe0d2;
+    --acc: #16a34a;
+    --acc2: #22c55e;
+    --soft: #eef5ee;
+    --code: #1a2e1f;
+    --codei: #dcfce7;
+    --oa: #ffffff;
 }
 
 :root[data-theme=sunset] {
-    --bg: #2a1a33;
-    --pn: #3a2444;
-    --ink: #fde9e2;
-    --mut: #c9a7b8;
-    --ln: #5c3a63;
-    --acc: #ff9a62;
-    --soft: #47294f;
+    --bg: #241430;
+    --pn: #32203f;
+    --ink: #fdeee8;
+    --mut: #c4a3b4;
+    --ln: #523a5e;
+    --acc: #fb923c;
+    --acc2: #fdba74;
+    --soft: #3d2749;
     --code: #1d1024;
-    --codei: #ffe3d6;
-    --oa: #2a1a33;
+    --codei: #ffedd5;
+    --oa: #241430;
+    --sh-1: 0 1px 2px rgba(0, 0, 0, .35), 0 1px 3px rgba(0, 0, 0, .45);
+    --sh-2: 0 4px 12px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .5);
+    --sh-3: 0 8px 24px rgba(0, 0, 0, .5), 0 24px 48px rgba(0, 0, 0, .6);
 }
 
 :root[data-theme=rose] {
-    --bg: #f8e9ee;
-    --pn: #fff8fa;
-    --ink: #3a1f2b;
+    --bg: #fdf2f5;
+    --pn: #fffafb;
+    --ink: #3d1a28;
     --mut: #8a5a6e;
-    --ln: #ecc7d4;
-    --acc: #c2255c;
-    --soft: #fbe6ee;
-    --code: #3a1f2b;
-    --codei: #ffe3ee;
+    --ln: #f3d3de;
+    --acc: #e11d48;
+    --acc2: #fb7185;
+    --soft: #fcebf0;
+    --code: #3d1a28;
+    --codei: #ffe4e6;
+    --oa: #ffffff;
 }
 
 :root[data-theme=dark] {
-    --oa: #0d1424;
+    --oa: #0b0d12;
 }

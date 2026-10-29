@@ -1,0 +1,350 @@
+/* Modern skin, loaded last. Visuals only: no layout behaviour, panel
+   visibility, fullscreen, drawer, or dock rule is overridden here with a
+   stronger selector, so every feature keeps working exactly as before. */
+
+/* ---- Header: frosted bar + gradient logo mark ---- */
+header {
+    background: color-mix(in srgb, var(--pn) 82%, transparent);
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    padding: 10px 16px;
+    gap: 10px;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    letter-spacing: -.03em;
+}
+
+header h1::before {
+    content: "M";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--acc), var(--acc2));
+    color: #fff;
+    font-size: 17px;
+    font-weight: 800;
+    box-shadow: var(--sh-1);
+}
+
+/* ---- Buttons: rounder, lifted, gradient primary ---- */
+.btn {
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: 600;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, filter .15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--sh-1);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn.pri {
+    background: linear-gradient(135deg, var(--acc), var(--acc2));
+    border-color: transparent;
+    box-shadow: var(--sh-1);
+}
+
+.btn.pri:hover {
+    box-shadow: var(--sh-2);
+    filter: brightness(1.06);
+}
+
+select {
+    border-radius: 10px;
+}
+
+.ib {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    transition: background .15s ease;
+}
+
+.ib:hover {
+    background: var(--soft);
+}
+
+/* ---- Layout: breathing room, elevated panels ---- */
+main {
+    gap: 12px;
+    padding: 12px;
+    grid-template-columns: 220px minmax(0, 1.05fr) minmax(0, 1fr);
+}
+
+#pal,
+#pv {
+    border: 1px solid var(--ln);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-1);
+    background: var(--pn);
+    overflow: hidden;
+}
+
+#pal {
+    padding: 14px 12px;
+}
+
+#cv {
+    background: transparent;
+    padding: 4px 2px;
+}
+
+/* ---- Palette items: cards that lift ---- */
+.pi {
+    border-radius: var(--r-md);
+    background: var(--bg);
+    box-shadow: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.pi:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--sh-1);
+    background: var(--soft);
+    border-color: color-mix(in srgb, var(--c) 45%, var(--ln));
+}
+
+.pi b {
+    font-size: 15px;
+}
+
+/* ---- Format bar: floating pill ---- */
+.fmt {
+    background: color-mix(in srgb, var(--pn) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--ln);
+    border-radius: 999px;
+    box-shadow: var(--sh-1);
+    padding: 4px 6px;
+    margin-bottom: 12px;
+}
+
+.fmt .btn {
+    border-radius: 999px;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+.fmt .btn:hover {
+    background: var(--soft);
+    transform: none;
+}
+
+/* ---- Block cards: true cards with focus ring ---- */
+.bk {
+    border-radius: var(--r-lg);
+    border: 1px solid var(--ln);
+    border-left: 6px solid var(--c);
+    box-shadow: var(--sh-1);
+    padding: 10px 12px 12px;
+    transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+.bk:hover {
+    box-shadow: var(--sh-2);
+}
+
+.bk:focus-within {
+    border-color: color-mix(in srgb, var(--acc) 55%, var(--ln));
+    box-shadow: var(--sh-2);
+}
+
+.bh span {
+    font-weight: 700;
+    letter-spacing: .01em;
+}
+
+.drop {
+    height: 6px;
+    border-radius: 999px;
+}
+
+/* ---- Editing fields inside cards ---- */
+.bk input:not([type=checkbox]),
+.bk textarea,
+.ap input {
+    background: var(--bg);
+    border: 1px solid var(--ln);
+    border-radius: 8px;
+}
+
+.tb input {
+    background: transparent;
+    border-color: transparent;
+    border-radius: 0;
+}
+
+/* ---- Preview: paper card inside the panel ---- */
+#pv {
+    background: var(--bg);
+}
+
+.tabs {
+    gap: 4px;
+    padding: 10px 10px 0;
+}
+
+.tabs button {
+    border-radius: 10px 10px 0 0;
+    padding: 11px 12px;
+}
+
+.tabs button.on {
+    color: var(--acc);
+    background: color-mix(in srgb, var(--acc) 8%, transparent);
+}
+
+#out {
+    margin: 12px;
+    border: 1px solid var(--ln);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-1);
+    background: var(--obg, transparent);
+}
+
+.md {
+    line-height: 1.65;
+}
+
+.md h1 {
+    font-size: 1.9em;
+    letter-spacing: -.03em;
+}
+
+.md h2 {
+    font-size: 1.45em;
+}
+
+.md pre {
+    border-radius: var(--r-md);
+}
+
+.md blockquote {
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+.md th,
+.md td {
+    padding: 6px 12px;
+}
+
+/* ---- Dialog, drawer, toast, empty state ---- */
+dialog {
+    border-radius: var(--r-xl);
+    box-shadow: var(--sh-3);
+    padding: 20px;
+}
+
+dialog::backdrop {
+    background: rgba(10, 12, 20, .5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+dialog textarea {
+    border-radius: 10px;
+}
+
+#side {
+    border-radius: 0 20px 20px 0;
+    box-shadow: var(--sh-3);
+}
+
+#bd {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.toast {
+    border-radius: 12px;
+    box-shadow: var(--sh-3);
+}
+
+.empty {
+    border-radius: var(--r-xl);
+    padding: 36px 24px;
+    background: color-mix(in srgb, var(--pn) 60%, transparent);
+}
+
+/* ---- Scrollbars + selection ---- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ln);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::selection {
+    background: color-mix(in srgb, var(--acc) 28%, transparent);
+}
+
+/* ---- Mid-width screens ---- */
+@media (max-width: 1180px) {
+    main {
+        grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+/* ---- Mobile: floating tab card ---- */
+@media (max-width: 900px) {
+    main {
+        padding: 10px;
+    }
+
+    #tab {
+        margin: 0 12px 12px;
+        border: 1px solid var(--ln);
+        border-radius: var(--r-lg);
+        box-shadow: var(--sh-2);
+        background: color-mix(in srgb, var(--pn) 90%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    #tab button {
+        padding: 12px 6px;
+    }
+}
+
+/* ---- Reduced motion: no lifts, no transitions ---- */
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .pi,
+    .bk {
+        transition: none;
+    }
+
+    .btn:hover,
+    .pi:hover {
+        transform: none;
+    }
+}
