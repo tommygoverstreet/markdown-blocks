@@ -1,0 +1,95 @@
+/* Design tokens: colours for the light/dark app themes (Ocean, Forest, Sunset, Rose). */
+
+:root {
+    --bg: #e8edf5;
+    --pn: #fff;
+    --ink: #14213d;
+    --mut: #5d6b86;
+    --ln: #cdd6e4;
+    --acc: #2b50e6;
+    --soft: #eef2fb;
+    --code: #0f1b33;
+    --codei: #d7e2ff;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme=light]) {
+        --bg: #0d1424;
+        --pn: #162039;
+        --ink: #e6ecfa;
+        --mut: #8f9db8;
+        --ln: #27355a;
+        --acc: #7b97ff;
+        --soft: #1b2748;
+        --code: #0a1020;
+        --codei: #d7e2ff;
+    }
+}
+
+:root[data-theme=dark] {
+    --bg: #0d1424;
+    --pn: #162039;
+    --ink: #e6ecfa;
+    --mut: #8f9db8;
+    --ln: #27355a;
+    --acc: #7b97ff;
+    --soft: #1b2748;
+    --code: #0a1020;
+    --codei: #d7e2ff;
+}
+
+:root[data-theme=ocean] {
+    --bg: #dcecf4;
+    --pn: #f4fafd;
+    --ink: #0b2b3b;
+    --mut: #4f6f80;
+    --ln: #b4d2e0;
+    --acc: #0a7ea4;
+    --soft: #e2f1f8;
+    --code: #0b2b3b;
+    --codei: #d8f1ff;
+}
+
+:root[data-theme=forest] {
+    --bg: #e3ece2;
+    --pn: #f6faf5;
+    --ink: #1c2e20;
+    --mut: #587060;
+    --ln: #bfd3c1;
+    --acc: #2d7a46;
+    --soft: #e8f2e8;
+    --code: #14231a;
+    --codei: #d9f5de;
+}
+
+:root[data-theme=sunset] {
+    --bg: #2a1a33;
+    --pn: #3a2444;
+    --ink: #fde9e2;
+    --mut: #c9a7b8;
+    --ln: #5c3a63;
+    --acc: #ff9a62;
+    --soft: #47294f;
+    --code: #1d1024;
+    --codei: #ffe3d6;
+    --oa: #2a1a33;
+}
+
+:root[data-theme=rose] {
+    --bg: #f8e9ee;
+    --pn: #fff8fa;
+    --ink: #3a1f2b;
+    --mut: #8a5a6e;
+    --ln: #ecc7d4;
+    --acc: #c2255c;
+    --soft: #fbe6ee;
+    --code: #3a1f2b;
+    --codei: #ffe3ee;
+}
+
+:root[data-theme=dark] {
+    --oa: #0d1424;
+}

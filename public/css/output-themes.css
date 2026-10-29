@@ -1,0 +1,65 @@
+/* Themes for the rendered preview and exported HTML (Paper, GitHub, Midnight, Terminal, Pastel). */
+
+#out[data-ot=paper],
+#dko[data-ot=paper] {
+    --obg: #fbf7ee;
+    --ink: #2b2a27;
+    --mut: #6d675b;
+    --ln: #e0d8c6;
+    --acc: #2f5d8a;
+    --soft: #f0e9d8;
+    --code: #2b2a27;
+    --codei: #f4ecd8;
+    --ofont: Georgia,'Times New Roman',serif;
+    font-size: 17px;
+}
+
+#out[data-ot=github],
+#dko[data-ot=github] {
+    --obg: #fff;
+    --ink: #1f2328;
+    --mut: #59636e;
+    --ln: #d1d9e0;
+    --acc: #0969da;
+    --soft: #f6f8fa;
+    --code: #f6f8fa;
+    --codei: #1f2328;
+    --ofont: -apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+
+#out[data-ot=midnight],
+#dko[data-ot=midnight] {
+    --obg: #0b1020;
+    --ink: #dfe6f7;
+    --mut: #8b97b5;
+    --ln: #263153;
+    --acc: #7aa2ff;
+    --soft: #151d38;
+    --code: #050914;
+    --codei: #cfe0ff;
+}
+
+#out[data-ot=terminal],
+#dko[data-ot=terminal] {
+    --obg: #0a0f0a;
+    --ink: #b7f5b0;
+    --mut: #6fae69;
+    --ln: #1f3a1f;
+    --acc: #5cff7a;
+    --soft: #122212;
+    --code: #050805;
+    --codei: #9dff9d;
+    --ofont: 'JetBrains Mono',monospace;
+}
+
+#out[data-ot=pastel],
+#dko[data-ot=pastel] {
+    --obg: #fff7fb;
+    --ink: #3b2a45;
+    --mut: #7d6a88;
+    --ln: #ecd3e8;
+    --acc: #b24bc4;
+    --soft: #f8e8f6;
+    --code: #3b2a45;
+    --codei: #fdeaff;
+}
