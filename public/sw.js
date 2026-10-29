@@ -1,5 +1,5 @@
 /* Service worker: precache the app shell, serve it offline, refresh in the background. */
-const VERSION = 'v1.1.0';
+const VERSION = 'v1.2.0';
 const CACHE = `markdown-blocks-${VERSION}`;
 const SHELL = [
   "./",
@@ -14,6 +14,7 @@ const SHELL = [
   "./css/responsive.css",
   "./css/polish.css",
   "./css/modern.css",
+  "./css/pastel.css",
   "./js/config/blocks.js",
   "./js/config/templates.js",
   "./js/core/state.js",
