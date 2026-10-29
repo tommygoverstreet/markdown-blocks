@@ -1,0 +1,137 @@
+/* Pastel system, loaded last. Light airy theme, pastel gradient accents,
+   clearer block identity, and a friendlier flow on every screen size.
+   Paint, spacing, and responsive rules only: no layout behaviour, panel
+   visibility, fullscreen, drawer, or dock rule is changed here, and no
+   JavaScript was touched, so every feature keeps working as before. */
+
+/* ---- Primary actions: pastel gradient, dark readable text ---- */
+.btn.pri {
+    background: var(--grad);
+    border-color: transparent;
+    color: var(--on-grad);
+    box-shadow: var(--sh-1);
+}
+
+.btn.pri:hover {
+    filter: brightness(1.03);
+    box-shadow: var(--sh-2);
+}
+
+header h1::before {
+    background: var(--grad);
+    color: var(--on-grad);
+}
+
+/* ---- Blocks, easy to identify: pill type label + soft tint wash ---- */
+.bk {
+    background: color-mix(in srgb, var(--c) 4%, var(--pn));
+}
+
+.bh span:not(.hd) {
+    flex: 0 1 auto;
+    background: color-mix(in srgb, var(--c) 13%, transparent);
+    color: color-mix(in srgb, var(--c) 70%, var(--ink));
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: .02em;
+}
+
+.hd {
+    border-radius: 8px;
+}
+
+.hd:hover {
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+
+/* Palette items: the type icon becomes a tinted chip. */
+.pi b {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+    border-radius: 8px;
+}
+
+/* ---- Empty state: soft pastel wash instead of a bare dashed box ---- */
+.empty {
+    background: color-mix(in srgb, var(--acc) 5%, transparent);
+}
+
+/* ---- Mobile nav: the active tab gets a tint, not just a bar ---- */
+@media (max-width: 900px) {
+    body[data-v=a] #tab [data-t=a],
+    body[data-v=c] #tab [data-t=c],
+    body[data-v=p] #tab [data-t=p] {
+        background: color-mix(in srgb, var(--acc) 10%, transparent);
+    }
+}
+
+/* ---- Header flow on phones: no more scrolling to reach Export ----
+   The old rule forced one scrolling row, which hid Export .md/.html off
+   the right edge. Now the row wraps, and the two exports stretch across
+   a full second row as big tap targets. */
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+
+    header h1 {
+        flex: 1 1 auto;
+    }
+
+    #ex,
+    #exh2 {
+        flex: 1 1 40%;
+    }
+}
+
+/* ---- Small phones: tighter spacing, roomier inputs ---- */
+@media (max-width: 380px) {
+    aside,
+    section {
+        padding: 8px;
+    }
+
+    .bk {
+        padding: 8px;
+    }
+
+    .bh {
+        gap: 2px;
+    }
+
+    header h1 {
+        font-size: 15px;
+    }
+
+    dialog {
+        width: 94vw;
+    }
+
+    .tb td input {
+        min-width: 70px;
+    }
+}
+
+/* ---- Very wide screens: stop the columns stretching endlessly ---- */
+@media (min-width: 1440px) {
+    main {
+        max-width: 1680px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* ---- Focus visibility on cards and tabs, not just inputs ---- */
+.pi:focus-visible,
+.tabs button:focus-visible,
+#tab button:focus-visible {
+    box-shadow: var(--ring);
+    outline: none;
+}
