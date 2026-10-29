@@ -37,7 +37,7 @@ public/
   index.html            App shell. Script order matters (see below).
   sw.js                 Service worker. Bump VERSION when you change cached files.
   manifest.webmanifest  PWA manifest
-  css/                  tokens, app, output-themes, responsive, polish, modern (makeover skin, loaded last)
+  css/                  tokens, app, output-themes, responsive, polish, modern (makeover skin), pastel (pastel theme + layout flow, loaded last)
   js/
     config/             blocks.js (block registry), templates.js
     core/               state.js, markdown.js (parse/serialize/render), history.js
