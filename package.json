@@ -1,0 +1,15 @@
+{
+  "name": "markdown-blocks",
+  "version": "1.0.0",
+  "description": "Block based markdown editor. Static site, no build step.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "npx --yes serve public",
+    "check": "node scripts/check.mjs"
+  }
+}
