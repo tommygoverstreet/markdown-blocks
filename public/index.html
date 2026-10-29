@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Markdown Blocks: write markdown with drag and drop blocks</title>
+<meta name="description" content="A free block editor for markdown. Drag, drop and reorder blocks, preview live, and export .md or styled .html. Works offline.">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MD Blocks">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/tokens.css">
+<link rel="stylesheet" href="./css/app.css">
+<link rel="stylesheet" href="./css/output-themes.css">
+<link rel="stylesheet" href="./css/responsive.css">
+<link rel="stylesheet" href="./css/polish.css">
+</head>
+<body data-v="c">
+<noscript>Markdown Blocks needs JavaScript to run.</noscript>
+<header><h1>Markdown Blocks</h1>
+<select id="th" aria-label="App theme"></select><button class="btn dsk" id="tp">Blocks</button><button class="btn dsk" id="tv">Preview</button><button class="btn" id="imp">Import</button><button class="btn" id="un">Undo</button><button class="btn" id="re">Redo</button>
+<button class="btn" id="cp">Copy</button><button class="btn pri" id="ex">Export .md</button></header>
+<main>
+<aside id="pal"><div class="row" style="margin-bottom:8px;color:var(--mut);font-size:13px"><span style="flex:1">Drag a block onto the page, or tap to add it.</span><button class="ib" data-full="pal" title="Full screen">⤢</button></div><div id="plist"></div></aside>
+<section id="cv"><div class="fmt" id="fmt"></div><div id="cvs"></div></section>
+<aside id="pv"><div class="tabs"><button class="on" data-p="r">Preview</button><button data-p="m">Markdown</button><select id="ot" aria-label="Output theme" style="flex:0 1 auto;margin:6px 4px;max-width:130px"></select><button id="exh" title="Export styled HTML" style="flex:0 0 auto;padding:10px">HTML</button><button data-full="pv" title="Full screen" style="flex:0 0 48px">⤢</button></div><div id="out"></div><div id="st"></div></aside>
+</main>
+<button class="btn pri" id="xfs">Exit full screen</button><nav id="tab"><button data-t="a" data-go="a">Blocks</button><button data-t="c" data-go="c">Write</button><button data-t="p" data-go="p">Preview</button></nav>
+<dialog id="dlg"><p id="dm" style="margin-top:0"></p><textarea id="dt" class="mono"></textarea><div class="row" style="margin-top:10px;justify-content:flex-end"><button class="btn" id="dc">Cancel</button><button class="btn pri" id="dok">OK</button></div></dialog>
+<script defer src="./js/config/blocks.js"></script>
+<script defer src="./js/config/templates.js"></script>
+<script defer src="./js/core/state.js"></script>
+<script defer src="./js/core/markdown.js"></script>
+<script defer src="./js/core/history.js"></script>
+<script defer src="./js/ui/preview.js"></script>
+<script defer src="./js/ui/attributes.js"></script>
+<script defer src="./js/ui/blocks.js"></script>
+<script defer src="./js/ui/canvas-events.js"></script>
+<script defer src="./js/ui/palette-dnd.js"></script>
+<script defer src="./js/ui/format.js"></script>
+<script defer src="./js/ui/panels.js"></script>
+<script defer src="./js/io/files.js"></script>
+<script defer src="./js/ui/themes.js"></script>
+<script defer src="./js/ui/drawer.js"></script>
+<script defer src="./js/ui/custom-css.js"></script>
+<script defer src="./js/ui/toast.js"></script>
+<script defer src="./js/ui/extras.js"></script>
+<script defer src="./js/ui/touch-dnd.js"></script>
+<script defer src="./js/pwa.js"></script>
+<script defer src="./js/main.js"></script>
+</body>
+</html>
