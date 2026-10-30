@@ -82,10 +82,9 @@ cv.addEventListener('keydown', e => {
         }
     }
 });
-cv.addEventListener('click', e => {
-    const a = e.target.dataset.a, b = blk(e.target);
-    if (!a || !b)
-        return;
+/* One place for every block action, so the canvas buttons and the modal
+   rows run exactly the same code. */
+const act = (b, a, t) => {
     const i = find(b.id);
     if (a === 'up' && i > 0)
         [B[i - 1], B[i]] = [B[i], B[i - 1]];
@@ -94,7 +93,7 @@ cv.addEventListener('click', e => {
     else if (a === 'col')
         b.c = b.c ? 0 : 1;
     else if (a[0] === 'x')
-        attr(a, b, e.target);
+        attr(a, b, t);
     else if (a === 'dup')
         B.splice(i + 1, 0, Object.assign(JSON.parse(JSON.stringify(b)), { id: ++uid }));
     else if (a === 'del')
@@ -110,4 +109,52 @@ cv.addEventListener('click', e => {
     draw();
     out();
     snap();
+};
+cv.addEventListener('click', e => {
+    const a = e.target.dataset.a, b = blk(e.target);
+    if (!a || !b)
+        return;
+    if (a === 'menu') {
+        openBm(b);
+        return;
+    }
+    act(b, a, e.target);
+});
+
+/* Block actions modal: the slim header holds only the grip, the label and
+   a ⋮ button; every action lives here, one per row, big enough to tap.
+   Native <dialog> gives backdrop tap and Escape to close for free. */
+document.body.insertAdjacentHTML('beforeend', '<dialog id="bdlg"><div class="bm-head"><b id="bm-t"></b><button class="ib" id="bm-x" aria-label="Close">✕</button></div><div id="bm-acts"></div></dialog>');
+const bdlg = $('#bdlg');
+let bmId = null;
+const openBm = b => {
+    const i = find(b.id);
+    if (i < 0)
+        return;
+    bmId = b.id;
+    const fold = b.type === 'h' ? 'section' : 'block';
+    $('#bm-t').textContent = T[b.type][0];
+    $('#bm-acts').innerHTML = [
+        ['col', (b.c ? 'Unfold ' : 'Fold ') + fold, '▸', false],
+        ['up', 'Move up', '↑', i === 0],
+        ['dn', 'Move down', '↓', i === B.length - 1],
+        ['dup', 'Duplicate', '⧉', false],
+        ['xt', 'HTML attributes' + (b.a && b.a.length ? ' ●' : ''), '⚙', false],
+        ['del', 'Delete block', '✕', false]
+    ].map(([a, n, ic, dis]) => `<button class="bm-act${a === 'del' ? ' bm-del' : ''}" data-bm="${a}"${dis ? ' disabled' : ''}><span>${ic}</span>${n}</button>`).join('');
+    bdlg.showModal();
+};
+bdlg.addEventListener('click', e => {
+    if (e.target === bdlg || e.target.id === 'bm-x') {
+        bdlg.close();
+        return;
+    }
+    const btn = e.target.closest('[data-bm]');
+    if (!btn || !bmId)
+        return;
+    const b = B[find(bmId)];
+    const a = btn.dataset.bm;
+    bdlg.close();
+    if (b)
+        act(b, a, btn);
 });
