@@ -135,3 +135,84 @@ header h1::before {
     box-shadow: var(--ring);
     outline: none;
 }
+
+/* ---- Sidebar scroll fix: the makeover's card rule set overflow hidden
+   on the palette, which clipped it instead of scrolling. Restore it,
+   and make the preview pane shrink properly inside its flex column. ---- */
+#pal {
+    overflow: auto;
+}
+
+#out {
+    min-height: 0;
+}
+
+#side {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+    overscroll-behavior: contain;
+}
+
+/* ---- Block actions modal: full-width rows, big tap targets ---- */
+#bdlg {
+    width: min(360px, 92vw);
+    padding: 12px;
+    max-height: 82dvh;
+    overflow: auto;
+}
+
+#bdlg::backdrop {
+    background: rgba(10, 12, 20, .5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.bm-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.bm-head b {
+    flex: 1;
+    font-size: 16px;
+}
+
+.bm-act {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid transparent;
+    background: none;
+    color: var(--ink);
+    padding: 12px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+.bm-act:hover {
+    background: var(--soft);
+}
+
+.bm-act span {
+    width: 24px;
+    text-align: center;
+    color: var(--mut);
+}
+
+.bm-act:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.bm-del {
+    color: color-mix(in srgb, #e11d48 75%, var(--ink));
+}
+
+.bm-del span {
+    color: inherit;
+}
