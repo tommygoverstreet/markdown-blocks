@@ -308,7 +308,9 @@ dialog textarea {
 }
 
 /* ---- Mid-width screens ---- */
-@media (max-width: 1180px) {
+/* Scoped to 901px and up: unscoped, this rule loaded after responsive.css
+   and overrode its single-column phone layout with three columns. */
+@media (min-width: 901px) and (max-width: 1180px) {
     main {
         grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr);
     }

@@ -225,6 +225,15 @@ section {
     align-items: center;
 }
 
+/* Flex items refuse to shrink below content size by default, so a
+   full-width input in a row (e.g. the heading text field next to its
+   H1–H6 select) overflowed its card on narrow screens. */
+.row>input,
+.row>textarea,
+.row>select {
+    min-width: 0;
+}
+
 .big {
     font-size: 19px;
     font-weight: 600;

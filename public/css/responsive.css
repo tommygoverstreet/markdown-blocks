@@ -14,6 +14,16 @@
         display: none;
     }
 
+    /* ID-level hide: app.css sets #pv{display:flex}, which beats the
+       main>* rule above, so the preview stayed visible in Write view
+       on phones. The body[data-v=…] rules below still win for the
+       active panel. */
+    #pal,
+    #cv,
+    #pv {
+        display: none;
+    }
+
     body[data-v=a] #pal,
     body[data-v=c] #cv,
     body[data-v=p] #pv {
