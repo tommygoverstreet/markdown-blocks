@@ -1,4 +1,4 @@
-/**
+/*
  * Boot: restore the saved page (or the welcome template) and render.
  */
 try {
