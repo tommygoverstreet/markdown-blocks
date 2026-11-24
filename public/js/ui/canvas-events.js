@@ -21,8 +21,10 @@ cv.addEventListener('input', e => {
         b.a[d.av][1] = t.value;
     if (t.tagName === 'TEXTAREA')
         grow(t);
-    if (b.type === 'p' && d.f === 'text')
-        magic(b, t);
+    if (b.type === 'p' && d.f === 'text') {
+        if (!slashCheck(b, t))
+            magic(b, t);
+    }
     touch();
 });
 cv.addEventListener('focusin', e => { if (/INPUT|TEXTAREA/.test(e.target.tagName))
@@ -38,6 +40,8 @@ cv.addEventListener('paste', e => { const t = e.target, b = blk(t), s = e.clipbo
 cv.addEventListener('keydown', e => {
     const t = e.target, b = blk(t);
     if (!b)
+        return;
+    if (slashKey(e))
         return;
     const i = find(b.id);
     if (b.type === 'p' && t.tagName === 'TEXTAREA') {

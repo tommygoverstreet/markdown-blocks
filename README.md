@@ -1,9 +1,15 @@
 # Markdown Blocks
 
-A block based markdown editor that runs entirely in the browser. Drag, drop and reorder blocks, edit per-block HTML attributes, preview live in several themes, and export `.md` or a styled `.html` page. Installable as a PWA and usable offline. No build step and no runtime dependencies.
+A block based markdown editor that runs entirely in the browser. Organize work into pages, drag, drop and reorder blocks, edit per-block HTML attributes, preview live in several themes, and export `.md` or a styled `.html` page. Installable as a PWA and usable offline. No build step and no runtime dependencies.
 
 ## Features
 
+- **Pages (new in v1.4):** a GitBook-style sidebar with as many pages as you like — create, rename, duplicate, delete, search. Every page has its own icon and cover. Your old single document migrates into page 1 automatically.
+- **Slash menu (new in v1.4):** type `/` at the start of a paragraph to insert any block, filtered as you type.
+- **Command palette (new in v1.4):** press Ctrl/⌘K (or the ⌘K button) to search page titles and block text across every page, jump straight to a match, or run an action.
+- **Outline (new in v1.4):** a third preview tab that lists the page's headings — tap one to jump to that block.
+- **Task progress (new in v1.4):** the status bar shows checked/total tasks with a live progress bar.
+- **Export book (new in v1.4):** one `.md` file with every page, joined by `---`.
 - 14 block types: heading, paragraph, bulleted/numbered/task lists, quote, code, table, image, link, divider, callout, collapsible, contents
 - Drag and drop on desktop, touch drag on phones and tablets, plus up/down buttons
 - Fold sections or single blocks, full screen panels, collapsible bottom preview on small screens
@@ -37,12 +43,12 @@ public/
   index.html            App shell. Script order matters (see below).
   sw.js                 Service worker. Bump VERSION when you change cached files.
   manifest.webmanifest  PWA manifest
-  css/                  tokens, app, output-themes, responsive, polish, modern (makeover skin), pastel (pastel theme + layout flow, loaded last)
+  css/                  tokens, app, output-themes, responsive, polish, modern (makeover skin), pastel (pastel theme + layout flow, loaded last), pages (pages sidebar, page header, slash menu, command palette, outline)
   js/
     config/             blocks.js (block registry), templates.js
-    core/               state.js, markdown.js (parse/serialize/render), history.js
-    ui/                 canvas, palette, drawer, themes, preview, touch drag, toasts...
-    io/files.js         import, copy, export
+    core/               state.js, markdown.js (parse/serialize/render), history.js, pages.js (multi-page store)
+    ui/                 canvas, palette, drawer, themes, preview, touch drag, toasts, sidebar (pages nav + page header), command (slash menu + ⌘K palette)...
+    io/files.js         import, copy, export (.md, styled .html, whole book)
     main.js             boot
 scripts/check.mjs       CI checks
 netlify.toml            Netlify config and headers

@@ -51,3 +51,16 @@ $('#exh').onclick = () => { let css = ''; for (const sh of document.styleSheets)
     }
     catch (e) { }
 } const h = (B.find(x => x.type === 'h') || { text: 'Document' }).text; saveF((slug(h) || 'document') + '.html', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(h)}</title><style>${css}html,body{margin:0}body{font:16px/1.6 system-ui,sans-serif}#out{min-height:100vh;overflow:visible;padding:28px 18px}.md{max-width:760px;margin:0 auto}${UC ? '.md{' + UC + '}' : ''}</style></head><body><div id="out" data-ot="${OT}"><div class="md">${B.map(hb).join('')}</div></div></body></html>`); };
+/* Export every page as one book: # Title + its markdown, pages joined by ---. */
+const exportBook = () => {
+    const s = PAGES.map(p => '# ' + (p.title || 'Untitled') + '\n\n' + p.blocks.map(b => md(b) + mda(b)).join('\n\n')).join('\n\n---\n\n') + '\n';
+    try {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([s], { type: 'text/markdown' }));
+        a.download = 'markdown-blocks-book.md';
+        a.click();
+    }
+    catch (e) {
+        ask('Downloads are blocked here. Copy the book instead.', s, () => copy(s), 'Copy');
+    }
+};

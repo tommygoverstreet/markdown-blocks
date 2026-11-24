@@ -24,16 +24,19 @@
 <link rel="stylesheet" href="./css/polish.css">
 <link rel="stylesheet" href="./css/modern.css">
 <link rel="stylesheet" href="./css/pastel.css">
+<link rel="stylesheet" href="./css/pages.css">
 </head>
 <body data-v="c">
 <noscript>Markdown Blocks needs JavaScript to run.</noscript>
 <header><h1>Markdown Blocks</h1>
+<button class="btn" id="pgb" title="Show or hide pages">Pages</button><button class="btn" id="ckb" title="Search pages and commands (Ctrl+K)">⌘K</button>
 <select id="th" aria-label="App theme"></select><button class="btn dsk" id="tp">Blocks</button><button class="btn dsk" id="tv">Preview</button><button class="btn" id="imp">Import</button><button class="btn" id="un">Undo</button><button class="btn" id="re">Redo</button>
 <button class="btn" id="cp">Copy</button><button class="btn pri" id="ex">Export .md</button></header>
 <main>
+<aside id="pages"><div class="pg-search"><input id="pgq" placeholder="Search pages" autocomplete="off" aria-label="Search pages"></div><div id="pglist"></div><div class="pg-foot"><button class="btn pri" id="pgnew">+ New page</button><button class="btn" id="pgbook">Export book (.md)</button></div></aside>
 <aside id="pal"><div class="row" style="margin-bottom:8px;color:var(--mut);font-size:13px"><span style="flex:1">Drag a block onto the page, or tap to add it.</span><button class="ib" data-full="pal" title="Full screen">⤢</button></div><div id="plist"></div></aside>
-<section id="cv"><div class="fmt" id="fmt"></div><div id="cvs"></div></section>
-<aside id="pv"><div class="tabs"><button class="on" data-p="r">Preview</button><button data-p="m">Markdown</button><select id="ot" aria-label="Output theme" style="flex:0 1 auto;margin:6px 4px;max-width:130px"></select><button id="exh" title="Export styled HTML" style="flex:0 0 auto;padding:10px">HTML</button><button data-full="pv" title="Full screen" style="flex:0 0 48px">⤢</button></div><div id="out"></div><div id="st"></div></aside>
+<section id="cv"><div id="phead"><div id="pcover" title="Change cover"></div><div class="ph-row"><button id="picon" title="Page icon">📄</button><input id="ptitle" placeholder="Untitled" autocomplete="off" aria-label="Page title"></div></div><div class="fmt" id="fmt"></div><div id="cvs"></div></section>
+<aside id="pv"><div class="tabs"><button class="on" data-p="r">Preview</button><button data-p="m">Markdown</button><button data-p="o">Outline</button><select id="ot" aria-label="Output theme" style="flex:0 1 auto;margin:6px 4px;max-width:130px"></select><button id="exh" title="Export styled HTML" style="flex:0 0 auto;padding:10px">HTML</button><button data-full="pv" title="Full screen" style="flex:0 0 48px">⤢</button></div><div id="out"></div><div id="st"></div></aside>
 </main>
 <button class="btn pri" id="xfs">Exit full screen</button><nav id="tab"><button data-t="a" data-go="a">Blocks</button><button data-t="c" data-go="c">Write</button><button data-t="p" data-go="p">Preview</button></nav>
 <dialog id="dlg"><p id="dm" style="margin-top:0"></p><textarea id="dt" class="mono"></textarea><div class="row" style="margin-top:10px;justify-content:flex-end"><button class="btn" id="dc">Cancel</button><button class="btn pri" id="dok">OK</button></div></dialog>
@@ -42,6 +45,7 @@
 <script defer src="./js/core/state.js"></script>
 <script defer src="./js/core/markdown.js"></script>
 <script defer src="./js/core/history.js"></script>
+<script defer src="./js/core/pages.js"></script>
 <script defer src="./js/ui/preview.js"></script>
 <script defer src="./js/ui/attributes.js"></script>
 <script defer src="./js/ui/blocks.js"></script>
@@ -55,6 +59,8 @@
 <script defer src="./js/ui/custom-css.js"></script>
 <script defer src="./js/ui/toast.js"></script>
 <script defer src="./js/ui/extras.js"></script>
+<script defer src="./js/ui/sidebar.js"></script>
+<script defer src="./js/ui/command.js"></script>
 <script defer src="./js/ui/touch-dnd.js"></script>
 <script defer src="./js/pwa.js"></script>
 <script defer src="./js/main.js"></script>

@@ -1,25 +1,28 @@
 /*
- * Boot: restore the saved page (or the welcome template) and render.
+ * Boot: restore saved pages (or migrate the old single document, or the
+ * welcome template) and render.
  */
-try {
-    const saved = localStorage.getItem('mdblocks.v1');
-    const parsed = JSON.parse(saved || 'null');
-    if (Array.isArray(parsed) && parsed.length) {
-        const valid = parsed.filter(b => b && typeof b === 'object' && typeof b.type === 'string');
-        if (valid.length) {
-            B = valid;
-            uid = Math.max(0, ...valid.map(b => Number(b.id) || 0));
-        }
-    }
-}
-catch (e) { }
-if (!B.length) {
-    B = parse(TPL.Welcome);
+loadPages();
+if (!PAGES.length) {
+    PAGES.push(newPage('Welcome', parse(TPL.Welcome)));
+    savePages();
     toast('Welcome! Start with a template or paste markdown to begin.', 'Explore', () => {
         const tpl = document.getElementById('tpl');
         if (tpl) tpl.click();
     }, 5000);
 }
+{
+    let last = null;
+    try {
+        last = localStorage.getItem(CURK);
+    }
+    catch (e) { }
+    curPage = PAGES.find(p => p.id === last) || PAGES[0];
+}
+B = curPage.blocks;
+uid = Math.max(uid, maxUid());
+renderPages();
+renderPageHead();
 draw();
 out();
 snap();
